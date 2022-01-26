@@ -3,7 +3,6 @@ import { useState } from 'react';
 import AddUser from './components/AddUser';
 import UserList from './components/UserList ';
 
-let somethi;
 function App() {
   const [allUsers, setAllUsers] = useState([]);
   const getUserInfo = (data) => {
