@@ -13,14 +13,10 @@ const UserList = (props) => {
       />
     ));
   }
-  return (
-    <div
-      className={`${styles['user-list']}${
-        props.allUsers.length === 0 ? styles.unvisible : ''
-      }`}
-    >
-      {generatedUsers}
-    </div>
-  );
+  const userListClass = `${styles['user-list']}${
+    props.allUsers.length === 0 ? styles.unvisible : ''
+  }`;
+
+  return <div className={userListClass}>{generatedUsers}</div>;
 };
 export default UserList;
