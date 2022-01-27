@@ -9,7 +9,7 @@ const PopUpContent = (props) => {
       <div className={styles.header}>
         <h2>Invalid input</h2>
       </div>
-      <h4>Some</h4>
+      <h4>{props.textToDisplay}</h4>
       <button onClick={popUpHandler}>Okay</button>
     </div>
   );

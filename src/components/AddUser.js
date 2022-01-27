@@ -14,9 +14,22 @@ const AddUser = (props) => {
 
   const getAllData = (e) => {
     e.preventDefault();
-    if ((userName === '') & (userYear === '')) {
-      return props.formValidation(true);
+    if (userName === '' || userYear === '') {
+      const info = {
+        message: 'Please enter valid name and Age (non-empty values)',
+        status: true,
+      };
+      return props.formValidation(info);
     }
+
+    if (Number(userYear) <= 0) {
+      const info = {
+        message: 'Please enter a valid age (>0)',
+        status: true,
+      };
+      return props.formValidation(info);
+    }
+
     const userData = {
       name: userName,
       year: userYear,

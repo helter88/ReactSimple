@@ -8,9 +8,11 @@ import PopUpContent from './components/PopUpContent';
 function App() {
   const [allUsers, setAllUsers] = useState([]);
   const [inValidForm, setInValidForm] = useState(false);
+  const [message, setMessage] = useState('');
 
-  const validateForm = (val) => {
-    setInValidForm(val);
+  const validateForm = (info) => {
+    setMessage(info.message);
+    setInValidForm(info.status);
   };
 
   const getUserInfo = (data) => {
@@ -31,8 +33,8 @@ function App() {
 
   if (inValidForm) {
     displayPopUp = (
-      <PopUp>
-        <PopUpContent popUpInfo={getPopUpInfo} />
+      <PopUp popUpInfo={getPopUpInfo}>
+        <PopUpContent popUpInfo={getPopUpInfo} textToDisplay={message} />
       </PopUp>
     );
   }
