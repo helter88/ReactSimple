@@ -7,6 +7,12 @@ import PopUpContent from './components/PopUpContent';
 
 function App() {
   const [allUsers, setAllUsers] = useState([]);
+  const [inValidForm, setInValidForm] = useState(false);
+
+  const validateForm = (val) => {
+    setInValidForm(val);
+  };
+
   const getUserInfo = (data) => {
     setAllUsers((prevData) => {
       if (prevData === []) {
@@ -17,12 +23,20 @@ function App() {
     });
   };
 
-  return (
-    <div>
+  let displayPopUp;
+
+  if (inValidForm) {
+    displayPopUp = (
       <PopUp>
         <PopUpContent />
       </PopUp>
-      <AddUser userInfo={getUserInfo} />
+    );
+  }
+
+  return (
+    <div>
+      {displayPopUp}
+      <AddUser userInfo={getUserInfo} formValidation={validateForm} />
       <UserList allUsers={allUsers} />
     </div>
   );
