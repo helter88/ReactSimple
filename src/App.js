@@ -23,12 +23,16 @@ function App() {
     });
   };
 
+  const getPopUpInfo = () => {
+    setInValidForm(false);
+  };
+
   let displayPopUp;
 
   if (inValidForm) {
     displayPopUp = (
       <PopUp>
-        <PopUpContent />
+        <PopUpContent popUpInfo={getPopUpInfo} />
       </PopUp>
     );
   }

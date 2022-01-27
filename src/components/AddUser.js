@@ -15,7 +15,7 @@ const AddUser = (props) => {
   const getAllData = (e) => {
     e.preventDefault();
     if ((userName === '') & (userYear === '')) {
-      props.formValidation(true);
+      return props.formValidation(true);
     }
     const userData = {
       name: userName,
