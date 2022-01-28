@@ -41,9 +41,9 @@ const AddUser = (props) => {
   return (
     <form className={styles['user-form']} onSubmit={getAllData}>
       <label>User Name</label>
-      <input onChange={getUserName} value={userName}></input>
+      <input type="text" onChange={getUserName} value={userName}></input>
       <label>Age (Years)</label>
-      <input onChange={getUserYear} value={userYear}></input>
+      <input type="number" onChange={getUserYear} value={userYear}></input>
       <button type="submit">Add User</button>
     </form>
   );
