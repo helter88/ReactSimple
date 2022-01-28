@@ -4,6 +4,7 @@
   width: 40%;
   margin: 40px auto;
   background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   flex-direction: column;
   border-radius: 10px;
   gap: 8px;
