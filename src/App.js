@@ -4,6 +4,7 @@ import AddUser from './components/AddUser';
 import UserList from './components/UserList ';
 import PopUp from './components/PopUp';
 import PopUpContent from './components/PopUpContent';
+import ReactDOM from 'react-dom';
 
 function App() {
   const [allUsers, setAllUsers] = useState([]);
@@ -29,19 +30,25 @@ function App() {
     setInValidForm(false);
   };
 
-  let displayPopUp;
+  const ShowPopUp = (props) => {
+    let displayPopUp = <></>;
 
-  if (inValidForm) {
-    displayPopUp = (
-      <PopUp popUpInfo={getPopUpInfo}>
-        <PopUpContent popUpInfo={getPopUpInfo} textToDisplay={message} />
-      </PopUp>
-    );
-  }
+    if (inValidForm) {
+      displayPopUp = (
+        <PopUp popUpInfo={getPopUpInfo}>
+          <PopUpContent popUpInfo={getPopUpInfo} textToDisplay={message} />
+        </PopUp>
+      );
+    }
+    return displayPopUp;
+  };
 
   return (
     <div>
-      {displayPopUp}
+      {ReactDOM.createPortal(
+        <ShowPopUp />,
+        document.getElementById('pop-up-root')
+      )}
       <AddUser userInfo={getUserInfo} formValidation={validateForm} />
       <UserList allUsers={allUsers} />
     </div>
