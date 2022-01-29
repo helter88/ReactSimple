@@ -1,11 +1,11 @@
 import styles from './PopUp.module.css';
 const PopUp = (props) => {
-  const spaceHandler = (e) => {
+  const popUpHandler = (e) => {
     e.stopPropagation();
     props.popUpInfo();
   };
   return (
-    <div className={styles['pop-up']} onClick={spaceHandler}>
+    <div className={styles['pop-up']} onClick={popUpHandler}>
       {props.children}
     </div>
   );

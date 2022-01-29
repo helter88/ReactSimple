@@ -8,6 +8,7 @@
   transform: translate(-50%, -50%);
   border-radius: 10px;
   backface-visibility: hidden;
+  z-index: 2;
 }
 .header {
   background-color: rgb(81, 41, 119);

@@ -30,15 +30,22 @@ function App() {
     setInValidForm(false);
   };
 
+  const ShowPopUpContent = (props) => {
+    let displayPopUpContent = <></>;
+
+    if (inValidForm) {
+      displayPopUpContent = (
+        <PopUpContent popUpInfo={getPopUpInfo} textToDisplay={message} />
+      );
+    }
+    return displayPopUpContent;
+  };
+
   const ShowPopUp = (props) => {
     let displayPopUp = <></>;
 
     if (inValidForm) {
-      displayPopUp = (
-        <PopUp popUpInfo={getPopUpInfo}>
-          <PopUpContent popUpInfo={getPopUpInfo} textToDisplay={message} />
-        </PopUp>
-      );
+      displayPopUp = <PopUp popUpInfo={getPopUpInfo}></PopUp>;
     }
     return displayPopUp;
   };
@@ -48,6 +55,10 @@ function App() {
       {ReactDOM.createPortal(
         <ShowPopUp />,
         document.getElementById('pop-up-root')
+      )}
+      {ReactDOM.createPortal(
+        <ShowPopUpContent />,
+        document.getElementById('pop-up-content')
       )}
       <AddUser userInfo={getUserInfo} formValidation={validateForm} />
       <UserList allUsers={allUsers} />
